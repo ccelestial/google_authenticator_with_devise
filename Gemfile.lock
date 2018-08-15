@@ -85,6 +85,13 @@ GEM
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    google-authenticator-rails (2.0.0)
+      actionpack
+      activerecord
+      google-qr
+      rails
+      rotp (= 3.3.0)
+    google-qr (0.2.2)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -150,6 +157,7 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rotp (3.3.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.5.7)
@@ -211,6 +219,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise (~> 4.3)
+  google-authenticator-rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
