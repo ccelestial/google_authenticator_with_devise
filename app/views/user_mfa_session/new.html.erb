@@ -1,0 +1,5 @@
+<%= form_tag user_mfa_session_index_path, method: :post do %>
+  <%= label_tag 'Enter authentication code:' %>
+  <%= text_field_tag :mfa_code  %>
+  <%= submit_tag 'Submit' %>
+<% end %>
