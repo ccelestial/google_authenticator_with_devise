@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2018_08_16_025034) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "google_secret"
-    t.boolean "two_factor_auth", default: false
+    t.boolean "two_factor_authenticated", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

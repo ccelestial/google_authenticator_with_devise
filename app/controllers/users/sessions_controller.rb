@@ -14,9 +14,13 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    # Removing Two Factor Authetication's Session
+    UserMfaSession::destroy
+    super
+  end
+
+  private
 
   # protected
 

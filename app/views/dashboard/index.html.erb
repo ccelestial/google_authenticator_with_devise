@@ -2,4 +2,5 @@
   Hello World <%= current_user.email %>!
 </h1> 
 
+<%= link_to 'Enable two way authentication', authentications_path %>
 <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>

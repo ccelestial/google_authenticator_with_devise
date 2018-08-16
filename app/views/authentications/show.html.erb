@@ -1,0 +1,16 @@
+<h4>Two Factor Authentication</h4>
+
+<div>
+  <%= form_tag authentications_path(@user), method: :patch do %>
+    <%= label_tag 'Enable Two Factor Authentication'%>
+    <%= check_box_tag :two_factor_authenticated, @user.two_factor_authenticated, @user.two_factor_authenticated %>
+    <%= submit_tag 'Submit' %>
+  <% end %>
+</div>
+
+<% if @user.two_factor_authenticated %>
+  <%= image_tag @user.google_qr_uri %>
+  <p>Capture this QR in Google Authenticator</p>
+<% end %>
+
+<%= link_to 'Back to Dashboard', root_path %>
