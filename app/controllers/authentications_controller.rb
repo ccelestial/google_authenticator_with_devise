@@ -1,6 +1,4 @@
 class AuthenticationsController < ApplicationController
-  skip_before_action :check_mfa
-
   def show
     @user = current_user
   end
@@ -9,10 +7,8 @@ class AuthenticationsController < ApplicationController
     @user = current_user
 
     if @user.update(authentication_params)
-      # Add Google secret for capturing
-      @user.set_google_secret
-      # Added to session
-      UserMfaSession.create(@user)
+      check_existing_qr
+
       redirect_to authentications_url
     else
       flash[:error] = "Something went wrong."
@@ -28,4 +24,13 @@ class AuthenticationsController < ApplicationController
       }
     end
 
+    def check_existing_qr
+      # if there is no existing google secret, create it
+      # it means that it is the first time the user
+      # activated two factor authentication
+      # Add Google secret for capturing
+      @user.set_google_secret unless @user.google_secret
+      # Added to session
+      UserMfaSession.create(@user)
+    end
 end
