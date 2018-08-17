@@ -8,12 +8,11 @@ class AuthenticationsController < ApplicationController
 
     if @user.update(authentication_params)
       check_existing_qr
-
-      redirect_to authentications_url
     else
-      flash[:error] = "Something went wrong."
-      redirect_to authentications_url
+      flash[:error] = 'Something went wrong.'
     end
+
+    redirect_to authentications_url
   end
 
   private
