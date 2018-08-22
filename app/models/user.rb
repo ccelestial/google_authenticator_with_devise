@@ -6,4 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def mfa_authenticated?
+    two_factor_authenticated
+  end
 end
