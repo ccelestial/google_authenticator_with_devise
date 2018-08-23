@@ -9,7 +9,7 @@
 </div>
 
 <% if @user.two_factor_authenticated %>
-  <%= image_tag @user.google_qr_uri %>
+  <%= image_tag @user.mfa_qr_uri %>
   <p>Capture this QR in Google Authenticator</p>
 <% end %>
 

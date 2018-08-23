@@ -5,9 +5,8 @@ class UserMfaSessionController < ApplicationController
   end
 
   def create
-    user = current_user
-    if user.google_authentic?(mfa_code)
-       UserMfaSession.create(user)
+    if current_user.google_authentic?(mfa_code)
+       UserMfaSession.create(current_user)
        redirect_to root_path
     else
       flash[:error] = "Wrong code"
